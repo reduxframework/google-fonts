@@ -1,5 +1,7 @@
 <?php
 
+
+
   /**
    * getSubsets Function.
    * Clean up the Google Webfonts subsets to be human readable
@@ -88,39 +90,39 @@
 
   date_default_timezone_set( 'UTC' );
 
-  #https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyChgq0tnQINFa3r_d-dvKqYkCkXNHqFAOQ
-
-  $gFile = dirname( __FILE__ ) . '/google_fonts.json';
-  if ( file_exists( $gFile ) ) {
-    // Keep the fonts updated weekly
-    $weekback     = strtotime( date( 'jS F Y', time() + ( 60 * 60 * 24 * - 7 ) ) );
-    $last_updated = filemtime( $gFile );
-    if ( $last_updated >= $weekback ) {
-      //return;
+  $output = shell_exec( 'git log -1' );
+  if ( strpos( $a, 'Author: Travis CI' ) === false ) {
+    $gFile = dirname( __FILE__ ) . '/google_fonts.json';
+    if ( file_exists( $gFile ) ) {
+      // Keep the fonts updated weekly
+      $weekback     = strtotime( date( 'jS F Y', time() + ( 60 * 60 * 24 * - 7 ) ) );
+      $last_updated = filemtime( $gFile );
+      if ( $last_updated >= $weekback ) {
+        //return;
+      }
     }
-  }
 
-  $fonts = array();
-  //$result = json_decode( file_get_contents( dirname( __FILE__ ) . '/google_fonts.json' ) );
-
-  $arrContextOptions = array(
-    "ssl" => array(
-      "verify_peer"      => false,
-      "verify_peer_name" => false,
-    ),
-  );
-
-  $key    = getenv( 'GOOGLEKEY' );
-  $result = json_decode( file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key={$key}", false, stream_context_create( $arrContextOptions ) ) );
-
-  foreach ( $result->items as $font ) {
-    $fonts[ $font->family ] = array(
-      'variants' => getVariants( $font->variants ),
-      'subsets'  => getSubsets( $font->subsets )
+    $fonts = array();
+    
+    $arrContextOptions = array(
+      "ssl" => array(
+        "verify_peer"      => false,
+        "verify_peer_name" => false,
+      ),
     );
-  }
-  $data = json_encode( $fonts );
-  file_put_contents( $gFile, $data );
 
-  echo "New json:\n\n";
-  echo $data;
+    $key    = getenv( 'GOOGLEKEY' );
+    $result = json_decode( file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key={$key}", false, stream_context_create( $arrContextOptions ) ) );
+
+    foreach ( $result->items as $font ) {
+      $fonts[ $font->family ] = array(
+        'variants' => getVariants( $font->variants ),
+        'subsets'  => getSubsets( $font->subsets )
+      );
+    }
+    $data = json_encode( $fonts );
+    file_put_contents( $gFile, $data );
+
+    echo "New json saved.";
+  }
+
