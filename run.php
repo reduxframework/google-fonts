@@ -129,6 +129,7 @@
     echo shell_exec( 'git add google_fonts.json' );
 
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
+    echo "git commit --message 'Travis build: $build_number'";
     echo shell_exec( "git commit --message 'Travis build: $build_number'" );
     $gh_token = getenv( 'GH_TOKEN' );
     echo shell_exec( "git remote add origin-fonts https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
