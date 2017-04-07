@@ -6,8 +6,8 @@ env:
     secure: "UENxQUgUm0buyugewFTILloQb157RugVp29W7DmhW3pBorYqF+qwJTr0o/pNmDd7yeVueiHYffavHbMgPuZ/M1oYKhQGJxtdCNMZsG3lhe6ylgvx4I9xCpCBXF9LKUxTkEPAJFIXT96b8b5q2Ql0mGQXQnCTnDgRfvXZUZnZGHn3GZR4jqzw1OOWdhosZzShvDeokt0AeJEiI7CPpAxhjmrzsLRKaTAtfYuTvjX7xNEYBLfWhDNqbTxH5MmwIvGU1p+acuNhRZAXx8Kf5HXfEPO0USXptNPVoV00V6OZaY+TUVIVMoXgr92m7FFeo7Ii0du8Ar71Zu2uNJJEODOy2UKyU/LLAL3aHLB0mSs2ZO/MTI4ZAVWEQosLHWdKu4QYhhm41tA80jyR4hZLYxGJatPBHFEm4JqpXPBuooAgk9GrPDrUf9F6hWTtORyBZGwbIV3GEUhvcKztVBzwAKxTfy6tQwY3R4qdwy9fjvgIGBF+yNTlNMujmoBpzaXxYoDBAjt6m8tv5SyWquN+QuMvyeF0THsoNFpdC/PzztVMmOFTc/tT5Zz5cuYn+idiM0+/+a2QLTj88Nbc2STd1I1YIVX0QgaDbcHjHwl+2+4FtRvhyI3JuNlN5QN+y8TgIF/Uz/EBiCjcLYhlpK09dAlzb+A1Fx0dEFJypeduKVTF9Zw="
 script:
 - php run.php
-#after_script:
-#  - ./update-repo.sh
+after_script:
+  - ./update-repo.sh
 notifications:
   email:
     recipients:
