@@ -7,13 +7,8 @@ env:
     - secure: "IzYm/lE5Q4X6MBzFOGmuZQ66a9O/pRtP1ERbGnzFy/F9PJUCeTOIEV1dAR0R9mLWaosl+dT4xVNWSfNcZ2ViPn+OKAkADOGfKzKJEowqXXBG5qxdoiUG+rwwUqS0LPs3zYeShYooUO5or0ac9toF7vylREu1HWO7jb/2ZhI0cM1viKW0cN1K+Qbzz0r3Ys62qNIg8RTKp96AvXWb6BepImx5WU6QPEDsMf1mCH3ajZ5CFRo7rRpmLswllEiLXHPk55b2iq+V2OsymB6ddVlnehKbPpcYftGOjg5dzrYRWVIQwQcKFitzCCGXqEmCkgm8MZ6Vp10BfENX0PzK4SvBFe3R4EnSRURupCKnspQAaCK0lhdeBJUCimh3yM5ofqVmstffKsHhWSRCgt+xfjsYjKSrpJdA49wWUwbECHsql2LhUvV7i7vyb/lMyj1TsGEq+ChdKhMitv/Ex+sJy28Up/GGG3m7vKOMc6Aum7QFZBkQxdE84iGChusAIWLZnRE0lk8STRpd5xBvcj2iE6aG0EezSvBasBRiJW3d7gjWozfta3Jvhw089ElIFd7/f1yo7qTFk/Hj6QkpFfWCLlHvrSb0mTZ/DFVD1UtamLnPUybsF5xf+5497GIGg5AwOC6zrO5p62kFcnuI9oFHLFVzAEQ3ijfqPGzlD5OHTcYY5jw="
 script:
 - php run.php
-#after_script:
-#  - ./update-repo.sh
-notifications:
-  email:
-    recipients:
-    - support@redux.io
-    on_failure: always
-branches:
-  except:
-    - fonts
+#notifications:
+#  email:
+#    recipients:
+#    - support@redux.io
+#    on_failure: always
