@@ -132,9 +132,9 @@
     echo "git commit --message 'Travis build: $build_number'";
     echo shell_exec( "git commit --message 'Travis build: $build_number'" );
     $gh_token = getenv( 'GH_TOKEN' );
-    echo shell_exec( "git remote add origin-fonts https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
+    echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
-    echo shell_exec("git push --set-upstream origin-fonts master");
+    echo shell_exec("git push");
 
   }
 
