@@ -91,6 +91,7 @@
 
   $output = shell_exec( 'git log -1' );
   if ( strpos( $output, 'Author: Travis CI' ) === false ) {
+    echo shell_exec('git checkout -f master');
     $gFile = dirname( __FILE__ ) . '/google_fonts.json';
     if ( file_exists( $gFile ) ) {
       // Keep the fonts updated weekly
@@ -134,6 +135,6 @@
     echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
     //echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
-    echo shell_exec("git push origin :master");
+    echo shell_exec("git push origin master -f")
   }
 
