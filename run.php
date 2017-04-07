@@ -111,7 +111,7 @@
   );
 
   $key    = getenv( 'GOOGLEKEY' );
-  $result = json_decode( file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key=$key", false, stream_context_create( $arrContextOptions ) ) );
+  $result = json_decode( file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key={$key}", false, stream_context_create( $arrContextOptions ) ) );
 
   foreach ( $result->items as $font ) {
     $fonts[ $font->family ] = array(
