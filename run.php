@@ -39,13 +39,13 @@
     foreach ( $var as $v ) {
       $name = "";
       if ( $v[0] == 1 ) {
-        $name = 'Ultra-Light 100';
+        $name = 'Thin 100';
       } else if ( $v[0] == 2 ) {
-        $name = 'Light 200';
+        $name = 'Extra Light 200';
       } else if ( $v[0] == 3 ) {
-        $name = 'Book 300';
+        $name = 'Light 300';
       } else if ( $v[0] == 4 || $v[0] == "r" || $v[0] == "i" ) {
-        $name = 'Normal 400';
+        $name = 'Regular 400';
       } else if ( $v[0] == 5 ) {
         $name = 'Medium 500';
       } else if ( $v[0] == 6 ) {
@@ -53,9 +53,9 @@
       } else if ( $v[0] == 7 ) {
         $name = 'Bold 700';
       } else if ( $v[0] == 8 ) {
-        $name = 'Extra-Bold 800';
+        $name = 'Extra Bold 800';
       } else if ( $v[0] == 9 ) {
-        $name = 'Ultra-Bold 900';
+        $name = 'Black 900';
       }
 
       if ( $v == "regular" ) {
