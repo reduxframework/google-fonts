@@ -91,7 +91,7 @@
   date_default_timezone_set( 'UTC' );
 
   $output = shell_exec( 'git log -1' );
-  if ( strpos( $a, 'Author: Travis CI' ) === false ) {
+  if ( strpos( $output, 'Author: Travis CI' ) === false ) {
     $gFile = dirname( __FILE__ ) . '/google_fonts.json';
     if ( file_exists( $gFile ) ) {
       // Keep the fonts updated weekly
@@ -103,7 +103,7 @@
     }
 
     $fonts = array();
-    
+
     $arrContextOptions = array(
       "ssl" => array(
         "verify_peer"      => false,

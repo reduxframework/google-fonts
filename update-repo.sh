@@ -13,7 +13,6 @@ commit_font_json() {
 upload_files() {
   git remote add origin-fonts https://${GH_TOKEN}@github.com/reduxframework/google-fonts.git > /dev/null 2>&1
   git push --quiet --set-upstream origin-fonts master
-#   git push --quiet master
 }
 
 setup_git
