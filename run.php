@@ -126,15 +126,14 @@
 
     echo shell_exec( 'git config --global user.email "travis@travis-ci.org"' );
     echo shell_exec( 'git config --global user.name "Travis CI"' );
-    echo shell_exec( 'git add google_fonts.json' );
+    echo shell_exec( 'git add -A' );
 
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
-    echo "git commit --message 'Travis build: $build_number'";
-    echo shell_exec( "git commit --message 'Travis build: $build_number'" );
+    echo shell_exec( "git commit -m \"Travis build: $build_number\"" );
     $gh_token = getenv( 'GH_TOKEN' );
-    echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
+    //echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
-    echo shell_exec("git push origin master --force");
+    echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
 
   }
 
