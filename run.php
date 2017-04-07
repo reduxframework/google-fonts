@@ -131,9 +131,9 @@
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
     echo shell_exec( "git commit -m \"Travis build: $build_number\"" );
     $gh_token = getenv( 'GH_TOKEN' );
-    //echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
+    echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
-    echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
-
+    //echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
+    echo shell_exec("git push origin master -f");
   }
 
