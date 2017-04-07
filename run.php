@@ -124,7 +124,7 @@
 
     echo "Saved new JSON\n\n";
 
-    shell_exec( 'git config --global user.email "travis@travis-ci.org' );
+    shell_exec( 'git config --global user.email "travis@travis-ci.org"' );
     shell_exec( 'git config --global user.name "Travis CI"' );
     $test = shell_exec( 'git add google_fonts.json' );
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
