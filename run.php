@@ -124,5 +124,7 @@
     file_put_contents( $gFile, $data );
 
     echo "New json saved.";
+
+    echo shell_exec("./update-repo.sh");
   }
 

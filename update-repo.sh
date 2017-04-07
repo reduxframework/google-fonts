@@ -18,3 +18,5 @@ upload_files() {
 setup_git
 commit_font_json
 upload_files
+
+echo "Fonts updated";
