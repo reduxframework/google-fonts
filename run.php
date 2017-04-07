@@ -122,13 +122,13 @@
     $data = json_encode( $fonts );
     file_put_contents( $gFile, $data );
 
-    echo "Saved new JSON";
+    echo "Saved new JSON\n\n";
 
     shell_exec( 'git config --global user.email "travis@travis-ci.org' );
     shell_exec( 'git config --global user.name "Travis CI"' );
     $test = shell_exec( 'git add google_fonts.json' );
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
-    $test = shell_exec( "git commit --message 'Travis build: $build_number''" );
+    $test = shell_exec( "git commit --message 'Travis build: $build_number'" );
     $gh_token = getenv( 'GH_TOKEN' );
     shell_exec( "git remote add origin-fonts https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
