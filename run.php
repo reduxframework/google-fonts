@@ -130,7 +130,7 @@
     echo shell_exec( 'git add -A' );
 
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
-    echo shell_exec( "git commit -m \"Travis build: $build_number\" [ci skip]" );
+    echo shell_exec( "git commit -m \"Travis build: $build_number\" [skip ci]" );
     $gh_token = getenv( 'GH_TOKEN' );
     echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
