@@ -1,0 +1,16 @@
+language: php
+php:
+- 5.5
+env:
+  global:
+    secure: "nCerUInFGBp6eCNKCoBRvFJlZNa8x/Z9xbZvCUkGMaPSpQoJtmd5dzB1QRhdP5qE/fGEXl5BLqbyh6wUuDXwz8MuFqEnqK1XjqFQBJ00Q28NDvzBfEgOcQhSOKnfBqleojISkhqggF2Xa0LKsLhV12Uh6xxJSa0e8YlnD1fVcP5CU+rvjEPaVW1ukZ3XkTdNt2+1+6n9wSYlndJqKgzr3o6krm1Om1xyNYQ4MvvOlk5MmOZX0GcY6EmjaT0R9IX9hyYD0UkkeIBaiG5KfPOygX0d0TlXlpH40QZV7H5nRcRvUflBZtoWKsfk2PsXMbUddq4q0OxcbSA08QtiWJ35AoNrvBlsZzFK23X9MbZDW38CChfs0JvLH30VJSu9G4nktJSGUOIVj1CMJ5kCnavm/2DLJ71hdZmBvoszmhxd8jXrrtEPSsK7AlcUj8MlUYcnz5A5Mu3WOq44daIYj7cGWnY8wCdi5heXpulr4Pa5yPlsQLy0xbBdzxZfB9BG87dZboXRDyaOQ7gctvxg/AN/poPh3NPD0TWDek24mwliJyclebSqHxCxysINz+t8Sa31IU52UyHYqCC3avkTAe5uvM4SFZN2aveAnVQG6AVR82L7dChGPGGTcNJCfryPGYEoczoVkCxlLwAuof5NmLwGfVHck/NtPaiqx+zlLDaMkTI="
+script:
+- php run.php
+#after_script:
+#  - ./update-repo.sh
+notifications:
+  email:
+    recipients:
+#    - support@redux.io
+#    on_failure: always
+
