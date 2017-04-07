@@ -1,11 +1,5 @@
 <?php
 
-
-  $key = getenv('SOMEVAR');
-  echo $key;
-  exit();
-
-
   /**
    * getSubsets Function.
    * Clean up the Google Webfonts subsets to be human readable
@@ -109,14 +103,15 @@
   $fonts = array();
   //$result = json_decode( file_get_contents( dirname( __FILE__ ) . '/google_fonts.json' ) );
 
-  $arrContextOptions=array(
-    "ssl"=>array(
-      "verify_peer"=>false,
-      "verify_peer_name"=>false,
+  $arrContextOptions = array(
+    "ssl" => array(
+      "verify_peer"      => false,
+      "verify_peer_name" => false,
     ),
   );
 
-  $result = json_decode(file_get_contents( 'https://www.googleapis.com/webfonts/v1/webfonts?key=', false, stream_context_create($arrContextOptions) ));
+  $key    = getenv( 'GOOGLEKEY' );
+  $result = json_decode( file_get_contents( "https://www.googleapis.com/webfonts/v1/webfonts?key=$key", false, stream_context_create( $arrContextOptions ) ) );
 
   foreach ( $result->items as $font ) {
     $fonts[ $font->family ] = array(
@@ -124,6 +119,8 @@
       'subsets'  => getSubsets( $font->subsets )
     );
   }
-  file_put_contents($gFile, json_encode( $fonts ));
+  $data = json_encode( $fonts );
+  file_put_contents( $gFile, $data );
 
-  print_r( json_encode( $fonts ) );
+  echo "New json:\n\n";
+  echo $data;
