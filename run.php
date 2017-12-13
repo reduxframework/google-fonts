@@ -136,5 +136,7 @@
     echo "\n\n";
     //echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
     echo shell_exec("git push origin master -f");
+  } else {
+    echo 'something went wrong';
   }
 
