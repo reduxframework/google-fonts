@@ -98,6 +98,7 @@
       $weekback     = strtotime( date( 'jS F Y', time() + ( 60 * 60 * 24 * - 7 ) ) );
       $last_updated = filemtime( $gFile );
       
+      echo $gFile . "\n";
       echo $last_updated . '\n';
       echo $weekback . '\n';
       
