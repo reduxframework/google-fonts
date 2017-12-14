@@ -90,8 +90,8 @@
   date_default_timezone_set( 'UTC' );
 
   $output = shell_exec( 'git log -1' );
-echo $output . "\n\n";
-  if ( strpos( $output, 'Author: Travis CI' ) === false ) {
+//echo $output . "\n\n";
+  //if ( strpos( $output, 'Author: Travis CI' ) === false ) {  //WHy cron is failing, this line there
     echo shell_exec('git checkout -f master');
     $gFile = dirname( __FILE__ ) . '/google_fonts.json';
     if ( file_exists( $gFile ) ) {
@@ -139,7 +139,7 @@ echo $output . "\n\n";
     echo "\n\n";
     //echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
     echo shell_exec("git push origin master -f");
-  } else {
-    echo 'something went wrong';
-  }
+  //} else {
+  //  echo 'something went wrong';
+  //}
 
