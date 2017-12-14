@@ -97,6 +97,10 @@
       // Keep the fonts updated weekly
       $weekback     = strtotime( date( 'jS F Y', time() + ( 60 * 60 * 24 * - 7 ) ) );
       $last_updated = filemtime( $gFile );
+      
+      echo $last_updated . '\n';
+      echo $weekback . '\n';
+      
       if ( $last_updated >= $weekback ) {
         echo 'Exit update.  A week has not yet passed.';
         return;
