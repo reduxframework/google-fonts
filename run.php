@@ -98,7 +98,8 @@
       $weekback     = strtotime( date( 'jS F Y', time() + ( 60 * 60 * 24 * - 7 ) ) );
       $last_updated = filemtime( $gFile );
       if ( $last_updated >= $weekback ) {
-        //return;
+        echo 'Exit update.  A week has not yet passed.';
+        return;
       }
     }
 
@@ -131,7 +132,7 @@
 
     $build_number    = getenv( 'TRAVIS_BUILD_NUMBER' );
     echo shell_exec( "git commit -m \"Travis build: $build_number [skip ci]\"" );
-    $gh_token = getenv( 'GH_TOKEN' );
+    $gh_token = getenv( 'GF_TOKEN' );
     echo shell_exec( "git remote set-url origin https://$gh_token@github.com/reduxframework/google-fonts.git > /dev/null 2>&1" );
     echo "\n\n";
     //echo shell_exec("git push https://$gh_token@github.com/reduxframework/google-fonts.git --force");
