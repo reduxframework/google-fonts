@@ -90,6 +90,7 @@
   date_default_timezone_set( 'UTC' );
 
   $output = shell_exec( 'git log -1' );
+echo $output . "\n\n";
   if ( strpos( $output, 'Author: Travis CI' ) === false ) {
     echo shell_exec('git checkout -f master');
     $gFile = dirname( __FILE__ ) . '/google_fonts.json';
