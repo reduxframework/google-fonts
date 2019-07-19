@@ -10,11 +10,3 @@ script:
   - php run.php
 after_success:
   - sh .travis-push.sh
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github-token: $NEW_GH_TOKEN
-  target-branch: master
-  keep-history: true # By default, Travis uses push --force and wipes out commit history
-  on:
-    branch: master
