@@ -10,7 +10,7 @@ setup_git() {
 commit_fonts_file() {
   git checkout master
   # Current month and year, e.g: Apr 2018
-  dateAndMonth=`date "+%b %Y"`
+  dateAndMonth=`date "+%Y-%m-%d"`
   # Stage the modified files in dist/output
   git add -f google_fonts.json
   # Create a new commit with a custom build message
@@ -24,14 +24,10 @@ upload_files() {
   git remote rm origin
   # Add new "origin" with access token in the git URL for authentication
   git remote add origin https://dovy:${NEW_GH_TOKEN}@github.com/reduxframework/google-fonts.git > /dev/null 2>&1
-  git push origin master --quiet #  > /dev/null 2>&1
+  git push origin master --quiet > /dev/null 2>&1
 }
 
 setup_git
-
-echo "Git is setup, let's do a git diff"
-
-git diff
 
 commit_fonts_file
 
