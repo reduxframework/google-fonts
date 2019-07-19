@@ -16,3 +16,6 @@ deploy:
   file: google_fonts.json
   on:
     repo: reduxframework/google-fonts
+    branches:
+      only:
+        - master
