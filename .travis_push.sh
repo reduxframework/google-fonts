@@ -29,6 +29,10 @@ upload_files() {
 
 setup_git
 
+echo "Git is setup, let's do a git diff"
+
+git diff
+
 commit_fonts_file
 
 # Attempt to commit to git only if "git commit" succeeded
