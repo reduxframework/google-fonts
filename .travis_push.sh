@@ -38,4 +38,3 @@ if [ $? -eq 0 ]; then
 else
   echo "No changes in Google Fonts. Nothing to do"
 fi
-
