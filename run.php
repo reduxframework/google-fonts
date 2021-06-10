@@ -126,8 +126,9 @@ foreach ( $result->items as $font ) {
 	);
 }
 
+ksort($fonts);
+
 $data = json_encode( $fonts );
-ksort($data);
 
 file_put_contents( $gFile, $data );
 
