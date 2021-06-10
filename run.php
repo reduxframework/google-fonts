@@ -125,8 +125,10 @@ foreach ( $result->items as $font ) {
 		'subsets'  => getSubsets( $font->subsets ),
 	);
 }
-ksort($data);
+
 $data = json_encode( $fonts );
+ksort($data);
+
 file_put_contents( $gFile, $data );
 
 echo "Saved new JSON\n\n";
