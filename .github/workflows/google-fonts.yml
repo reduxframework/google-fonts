@@ -1,0 +1,28 @@
+name: CI
+on: 
+  workflow_dispatch:
+  schedule:
+  - cron:  '0 0 * * *'
+jobs:
+  composer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo " ::set-output name=date::$(date +'%Y-%m-%d')"
+      - uses: actions/checkout@v1
+      - uses: nanasess/setup-php@master
+        with:
+          php-version: '7.4'
+
+      - run: php ./run.php ${{ secrets.GOOGLE_API_KEY }}
+        env:
+          GOOGLE_TOKEN: ${{secrets.GOOGLE_API_KEY}}
+
+      - run: git config --global user.email "support@svlstudios.com" && git config --global user.name "SVL Studios"
+      - run: git add -f -A
+      - run: git commit -m "Google Fonts Update: ${{ steps.date.outputs.date }} (Build $GITHUB_RUN_NUMBER)"
+      - run: git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:master
+      
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_SECRET }}
