@@ -19,7 +19,7 @@ jobs:
         env:
           GOOGLE_TOKEN: ${{secrets.GOOGLE_API_KEY}}
 
-      - run: git config --global user.email "support@svlstudios.com" && git config --global user.name "SVL Studios"
+      - run: git config --global user.email "support@redux.io" && git config --global user.name "Redux Framework"
       - run: git add -f -A
       - run: git commit -m "Google Fonts Update: ${{ steps.date.outputs.date }} (Build $GITHUB_RUN_NUMBER)"
       - run: git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:master
