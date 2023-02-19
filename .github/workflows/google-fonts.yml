@@ -8,12 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get current date
-        id: date
-        run: echo " ::set-output name=date::$(date +'%Y-%m-%d')"
+        id: version
+        run: |
+          echo "builddate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v1
       - uses: nanasess/setup-php@master
         with:
-          php-version: '7.4'
+          php-version: '8.0'
 
       - run: php ./run.php ${{ secrets.GOOGLE_API_KEY }}
         env:
@@ -21,7 +22,7 @@ jobs:
 
       - run: git config --global user.email "support@redux.io" && git config --global user.name "Redux Framework"
       - run: git add -f -A
-      - run: git commit -m "Google Fonts Update: ${{ steps.date.outputs.date }} (Build $GITHUB_RUN_NUMBER)"
+      - run: git commit -m "Google Fonts Update: ${{ steps.version.outputs.builddate }} (Build $GITHUB_RUN_NUMBER)"
       - run: git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:master
       
         env:
