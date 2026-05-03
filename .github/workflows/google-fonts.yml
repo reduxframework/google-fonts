@@ -12,7 +12,7 @@ jobs:
         run: |
           echo "builddate=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       - uses: actions/checkout@v1
-      - uses: nanasess/setup-php@master
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
 
